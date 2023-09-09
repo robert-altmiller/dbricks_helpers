@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- Datamasking_Upload
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+  displayName: 'Use Python 3.x'
+
+- script: |
+    # Echo the variable values for verification
+    echo "storageAccountName: $(storageAccountName)"
+    echo "storageAccountKey: $(storageAccountKey)"
+    echo "storageContainerName: $(storageContainerName)"
+    echo "sourceFilePath: $(sourceFilePath)"
+
+    # Set the Azure Storage account context
+    az storage blob upload --type block --account-name "$(storageAccountName)" --account-key "$(storageAccountKey)" --container-name "$(storageContainerName)" --name "col_masking_input/masking.xlsx" --type block --file "$(sourceFilePath)" --overwrite
+
+    echo "XLSX file copied to Azure Storage Container successfully!"
+  displayName: 'Copy XLSX to Azure Storage'
