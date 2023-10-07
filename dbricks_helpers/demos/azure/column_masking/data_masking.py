@@ -64,6 +64,10 @@ spark.udf.register("mask_column", mask_column)
 # read in the masking metadata (e.g. audit table) for masking rules
 # audit_catalog, audit_schema, and audit_table are defined in 'import_data_from_excel' notebook
 masking_metadata = spark.sql(f"SELECT * FROM `{audit_catalog}`.`{audit_schema}`.`{audit_table}`")
+# Find the maximum value of the 'last_updated' column
+max_last_updated = masking_metadata.agg({"last_updated": "max"}).collect()[0][0]
+# Filter rows where 'last updated' is equal to the maximum value
+masking_metadata = masking_metadata.filter(masking_metadata["last_updated"] == max_last_updated)
 
 # get masking rules
 rules = get_rules(masking_metadata)

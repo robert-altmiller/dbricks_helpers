@@ -1,0 +1,223 @@
+{
+    "domains":{
+        "ddm": {
+            "environments": {
+                "dev": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "prod": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "qa": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "uat": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                }
+            }
+        },
+        "frm": {
+            "environments": {
+                "dev": {
+                    "tenant": "da67ef1b-ca59-4db2-9a8c-aa8d94617a16",
+                    "subscription": "ae9ff6a8-2caf-45d6-86c7-64f8fa1bf196",
+                    "region": "westus",
+                    "resource_group": "rg-frm-westus-dev",
+                    "databricks_workspace": "dbw-frm-dev-01",
+                    "storage_account_name": "stfrmlanding01",
+                    "keyvault_name": "kv-frm-dev-01",
+                    "client_id": "7f9b3a4e-0407-4cd1-b12f-92a8451b3e60"
+                },
+                "prod": {
+                    "tenant": "da67ef1b-ca59-4db2-9a8c-aa8d94617a16",
+                    "subscription": "ae9ff6a8-2caf-45d6-86c7-64f8fa1bf196",
+                    "region": "westus",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "client_id": ""     
+                },
+                "qa": {
+                    "tenant": "da67ef1b-ca59-4db2-9a8c-aa8d94617a16",
+                    "subscription": "ae9ff6a8-2caf-45d6-86c7-64f8fa1bf196",
+                    "region": "westus",
+                    "resource_group": "rg-frm-westus-qa",
+                    "databricks_workspace": "dbw-frm-qa-01",
+                    "storage_account_name": "stfrmlandingq3",
+                    "keyvault_name": "kv-frm-qa-01",
+                    "client_id": ""
+                },
+                "uat": {
+                    "tenant": "da67ef1b-ca59-4db2-9a8c-aa8d94617a16",
+                    "subscription": "ae9ff6a8-2caf-45d6-86c7-64f8fa1bf196",
+                    "region": "westus",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                }
+            }
+        },
+        "mm": {
+            "environments": {
+                "dev": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "prod": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "qa": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "uat": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                }
+            }
+        },
+        "pm": {
+            "environments": {
+                "dev": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "prod": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "qa": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "uat": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                }
+            }  
+        },
+        "sm": {
+            "environments": {
+                "dev": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "prod": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "qa": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                },
+                "uat": {
+                    "tenant": "",
+                    "subscription": "",
+                    "region": "",
+                    "resource_group": "",
+                    "databricks_workspace": "",
+                    "storage_account_name": "",
+                    "keyvault_name": "",
+                    "client_id": ""     
+                }
+            } 
+        }
+    }
+}
