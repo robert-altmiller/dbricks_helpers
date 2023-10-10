@@ -1,9 +1,9 @@
 # Databricks notebook source
 # Replace these variables with your own values
-storage_account_name = "stfrmlanding01"
+storage_account_name = "st01"
 storage_account_key = "<your storage account key>"
 blob_container_name = "landingzone"
-mount_point = "/mnt/landingzone_stfrmlanding01"
+mount_point = "/mnt/zone_st01"
 
 # Configuration to connect to Azure Blob Storage
 conf = {

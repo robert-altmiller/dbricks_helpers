@@ -11,7 +11,7 @@ from azure.storage.blob import BlobServiceClient
 
 # DBTITLE 1,Storage Account Local Parameters
 # storage account connection string information
-storage_account_name = "stfrmlanding01"
+storage_account_name = "st01"
 storage_account_key = ""
 storage_account_conn = f"DefaultEndpointsProtocol=https;AccountName={storage_account_name};AccountKey={storage_account_key};EndpointSuffix=core.windows.net"
 
