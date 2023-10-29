@@ -7,10 +7,10 @@ from pyspark.sql.functions import expr, col
 # COMMAND ----------
 
 # DBTITLE 1,User Parameters (Catalog, Schema, Files Path, etc)
-catalog = "dmp_frm_dev"
+catalog = "dmp_*****"
 schema = "test2"
 #volumes_files_path = "/Volumes/dmp_frm_dev/volumes_bronze/rebates/YVRBT_NRNA_ACLIN_PEGASUS"
-volumes_files_path = "/Volumes/dmp_frm_dev/volumes_lz/archive"
+volumes_files_path = "/Volumes/dmp_*****/volumes_lz/archive"
 remove_empty_uc_tables = False # or True
 update_method = "create_tables" # or "merge_tables"
 data_type = "delta" # or "parquet" or "csv"

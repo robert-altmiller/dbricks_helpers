@@ -11,16 +11,19 @@ from azure.storage.blob import BlobServiceClient
 
 # DBTITLE 1,Storage Account Local Parameters
 # storage account connection string information
-storage_account_name = "st01"
+storage_account_name = ""
 storage_account_key = ""
 storage_account_conn = f"DefaultEndpointsProtocol=https;AccountName={storage_account_name};AccountKey={storage_account_key};EndpointSuffix=core.windows.net"
 
 # container filters for processing individual container
-container_filter = None
+container_filter = "datameshvolumes"
 # container_filter = "idfvolumes" # create a volume for a single container instead of all containers.  Set to 'None' for all containers.
 
+# storage credential name for external location creation
+storage_credential_name = "sc-***************"
+
 # catalog name and volumes schemas for IDF Code base
-catalog_name = "dmp_frm_dev"
+catalog_name = "dmp-***"
 
 # COMMAND ----------
 
@@ -96,24 +99,42 @@ print(f"volumes_dict: {volumes_dict}")
 
 # COMMAND ----------
 
-# DBTITLE 1,Create Catalog and Schema for Volumes
+# DBTITLE 1,Create Catalog for Volumes
 try:
     spark.sql(f"CREATE CATALOG {catalog_name}")
 except: 
     print(f"unable to create catalog {catalog_name}")
 
-for container in containers:
-    schema = f"volumes_{container}"
-    try:
+# COMMAND ----------
 
-        spark.sql(f"CREATE SCHEMA {schema}")
-    except: 
-        print(f"unable to create schema {schema}")
+# DBTITLE 1,Create External Location For Use With Schema Creation
+def create_external_location(external_loc_name = None, container = None, storage_account_name = None):
+    """this creates an external location using spark sql"""
+    SQL = f"""
+        CREATE EXTERNAL LOCATION IF NOT EXISTS `{external_loc_name}` URL 'abfss://{container}@{storage_account_name}.dfs.core.windows.net' WITH (STORAGE CREDENTIAL `{storage_credential_name}`)
+    """
+    spark.sql(SQL)
+
+# COMMAND ----------
+
+# DBTITLE 1,Create Schema With a Managed Location
+def create_schema(catalog_name = None, storage_account_name = None, container = None):
+    """create a schema with a managed location"""
+    SQL = f"""
+        CREATE SCHEMA IF NOT EXISTS `{catalog_name}`.volumes_{container} MANAGED LOCATION 'abfss://{container}@{storage_account_name}.dfs.core.windows.net'
+    """
+    spark.sql(SQL)
 
 # COMMAND ----------
 
 # DBTITLE 1,Create Unity Catalog External Volumes - All Storage Account Containers
 for container, rootfolders in volumes_dict.items():
+    #create external location if it does not exist
+    create_external_location(f"ext-{catalog_name}-{container}", container, storage_account_name)
+    
+    # create schema for volume if it does not exist
+    create_schema(catalog_name, storage_account_name, container)
+
     volume_location = f"abfss://{container}@{storage_account_name}.dfs.core.windows.net"
     for rootfolder in rootfolders:
         print(f"creating volume for '{container}' container and folder '{rootfolder}'")
@@ -124,3 +145,7 @@ for container, rootfolders in volumes_dict.items():
         """
         spark.sql(SQL_CREATE)
         print(f"created volume for '{container}' container and folder '{rootfolder}'")
+
+# COMMAND ----------
+
+
