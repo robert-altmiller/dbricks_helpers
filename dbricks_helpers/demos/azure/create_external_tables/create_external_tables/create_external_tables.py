@@ -73,10 +73,10 @@ def create_external_table_adls_csv(
 # )
 
 create_external_table_adls_csv(
-    storage_account_name = '',
-    storage_account_key = '',
-    container_name = 'landingzone',
+    storage_account_name = '*******',
+    storage_account_key = '*******',
+    container_name = '*******',
     container_subfolder = '/external_tables_test',
-    catalog_name = 'dmp_frm_dev',
+    catalog_name = '*******',
     schema_name = 'test2'
 )

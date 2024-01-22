@@ -23,14 +23,14 @@ mobile_combustion_pipeline_name = "esg_mobile_combustion"
 
 # example: (bronze_table_name, source_data_path, source_data_type)
 bronze_table_source_data = (
-    ("mc_comdata", "/mnt/landingzone_ddm_stddmlanding/esg_data/mobile_combustion/mms_fleet/comdata/", "csv"),
-    #("mc_comdata_delta", "/mnt/landingzone_ddm_stddmlanding/esg_data/mobile_combustion/mms_fleet/comdata3/", "delta"),
-    #("mc_comdata_parquet", "/mnt/landingzone_ddm_stddmlanding/esg_data/mobile_combustion/mms_fleet/comdata2/", "parquet"),
-    ("mc_penske", "/mnt/landingzone_ddm_stddmlanding/esg_data/mobile_combustion/mms_fleet/penske/", "csv"),
-    ("mc_ryder", "/mnt/landingzone_ddm_stddmlanding/esg_data/mobile_combustion/mms_fleet/ryder/", "csv"),
-    ("mc_ontario", "/mnt/landingzone_ddm_stddmlanding/esg_data/mobile_combustion/mms_fleet/canada_ontario/", "csv"),
-    ("mc_quebec", "/mnt/landingzone_ddm_stddmlanding/esg_data/mobile_combustion/mms_fleet/canada_quebec/", "csv"),
-    ("mc_jetfuel", "/mnt/landingzone_ddm_stddmlanding/esg_data/mobile_combustion/mms_fleet/jetfuel/", "csv"),
+    ("mc_comdata", "/mnt/landingzone_ddm_***********/esg_data/mobile_combustion/mms_fleet/comdata/", "csv"),
+    #("mc_comdata_delta", "/mnt/landingzone_ddm_**********/esg_data/mobile_combustion/mms_fleet/comdata3/", "delta"),
+    #("mc_comdata_parquet", "/mnt/landingzone_ddm_********/esg_data/mobile_combustion/mms_fleet/comdata2/", "parquet"),
+    ("mc_penske", "/mnt/landingzone_ddm_**********/esg_data/mobile_combustion/mms_fleet/penske/", "csv"),
+    ("mc_ryder", "/mnt/landingzone_ddm_**********/esg_data/mobile_combustion/mms_fleet/ryder/", "csv"),
+    ("mc_ontario", "/mnt/landingzone_ddm_********/esg_data/mobile_combustion/mms_fleet/canada_ontario/", "csv"),
+    ("mc_quebec", "/mnt/landingzone_ddm_*******/esg_data/mobile_combustion/mms_fleet/canada_quebec/", "csv"),
+    ("mc_jetfuel", "/mnt/landingzone_ddm_******/esg_data/mobile_combustion/mms_fleet/jetfuel/", "csv"),
 )
 
 # example: (silver_table_name, partition_columns_list, bronze_tables_list, description, data_quality_rules)
