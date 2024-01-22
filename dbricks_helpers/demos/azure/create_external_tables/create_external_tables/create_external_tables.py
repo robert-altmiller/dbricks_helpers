@@ -63,12 +63,12 @@ def create_external_table_adls_csv(
         print(f"External table '{table_name}' created successfully.")
 
 # create_external_table_adls_csv(
-#     storage_account_name = "stfrmlanding01",
-#     storage_account_key = "xCZaYU/bF7ie8nKOeFXXacjS7KxA20ptMfdYnpFokTY6pdK6YJwjZlC5y40/RKukg8+alnadXwT4+AStxCi7dA==",
+#     storage_account_name = "*******",
+#     storage_account_key = "*******",
 #     container_name = "landingzone",
 #     container_subfolder = "General-Accounting/Snowflake-West/sample/",
 #     schema_name = 'dmp_frm_dev',
-#     database_name = 'sch-frm-landingzone-dev',
+#     database_name = 'sch-frm-********-dev',
 #     process_dir_level = False
 # )
 
