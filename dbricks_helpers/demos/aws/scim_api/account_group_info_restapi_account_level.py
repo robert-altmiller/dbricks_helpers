@@ -47,7 +47,7 @@ print(f"DATABRICKS_TOKEN: {DATABRICKS_TOKEN}")
 
 # COMMAND ----------
 
-# DBTITLE 1,Get Group and User Information at the Account Level
+# DBTITLE 1,Get Group and User Information at the Account Level Using SCIM
 def get_all_groups(account_id, token, filter_value = None):
     """get all SCIM level groups from Account console"""
 
@@ -103,6 +103,62 @@ def get_user_groups(account_id, token, email_address):
 
 user_groups = get_user_groups(ACCOUNT_ID, DATABRICKS_TOKEN, "robert.altmiller@databricks.com")
 print(user_groups)
+
+# COMMAND ----------
+
+# DBTITLE 1,Add / Remove a User from an Account Level Group Using SCIM
+def add_remove_user_from_group(account_id, token, group_name, email_address, action):
+    """Add user to a SCIM level group from Account console"""
+
+    # Headers for authentication
+    headers = {
+        "Content-type": "application/scim+json",
+        "Authorization": f"Bearer {token}"
+    }
+
+    # Get user id details using Databricks SCIM rest api
+    filter_value = f'userName eq "{email_address}"'
+    user_id = json.loads(get_all_users(account_id, token, filter_value))[0]["id"]
+    print(f"user_id: {user_id}")
+
+    # Get group details using Databricks SCIM rest api
+    filter_value = f'displayName eq "{group_name}"'
+    group_id = json.loads(get_all_groups(account_id, token, filter_value))[0]["id"]
+    print(f"group_id: {group_id}")
+
+    payload = {
+        "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+        "Operations": [
+            {
+                "op": action,
+                "path": "members",
+                "value": [
+                    {
+                        "value": user_id,
+                        "display": email_address,
+                        "$ref": f"Users/{user_id}"
+                    }
+                ]
+            }
+        ]
+    }
+    
+    url_endpoint = f"{DATABRICKS_HOST}/api/2.0/accounts/{account_id}/scim/v2/Groups/{group_id}"
+    response = requests.patch(url_endpoint, headers=headers, data=json.dumps(payload))
+    if response.status_code == 200:
+        return f"{action} {email_address} to group {group_name} successfully: {response.json()}"
+    else:
+        raise Exception(f"Failed to {action} {email_address} to group {group_name}: {response.text}")
+
+
+# add a user to an account level group
+result = add_remove_user_from_group(ACCOUNT_ID, DATABRICKS_TOKEN, "abc", "robert.altmiller@databricks.com", "Add")
+print(result)
+
+
+# remove a user from an account level group
+result = add_remove_user_from_group(ACCOUNT_ID, DATABRICKS_TOKEN, "abc", "robert.altmiller@databricks.com", "Remove")
+print(result)
 
 # COMMAND ----------
 
